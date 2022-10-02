@@ -1,5 +1,5 @@
 <?php 
-    include_once 'includes/includes.php'; #path to the file 
+    include_once 'includes/dbinfo.php'; #path to the file 
 ?>
 <!DOCTYPE html>
 <html lang="en">
