@@ -7,9 +7,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>GYM MANAGEMENT DATABASE</title>
 </head>
 <body>
+    <h1>Dane - Testing my Database connection: Using herokus database server with mysql:</h1>
+    <br>
     <?php
     $connect;
     if(mysqli_connect_errno()){
@@ -17,7 +20,6 @@
     exit();
     }
 
-    echo "Connection succes!";
     $sql = "SELECT gymID, email FROM gym";
     $result = $connect->query($sql);
 
