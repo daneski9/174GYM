@@ -1,4 +1,6 @@
+
 <?php
+// LOCAL TEST SERVER
 $servername = "localhost";
 $username = "root";
 $password = "dane";
@@ -31,13 +33,13 @@ echo "Connected successfully";
     exit();
     }
 
-    $sql = "SELECT gymID, email FROM gym";
+    $sql = "SELECT gymID FROM 174gym";
     $result = $connect->query($sql);
 
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-        echo "gymID: " . $row["gymID"]. " - email: " . $row["email"]. "<br>";
+        echo "gymID: " . $row["gymID"]. "<br>";
         }
     } else {
         echo "0 results";
