@@ -11,7 +11,7 @@
     <title>GYM MANAGEMENT DATABASE</title>
 </head>
 <body>
-    <h1>Dane - Testing my Database connection: Using herokus database server with mysql:</h1>
+    <h1>Dane! - Testing my Database connection: Using herokus database server with mysql:</h1>
     <br>
     <?php
     $connect;
