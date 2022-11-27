@@ -32,7 +32,7 @@ include_once 'includes/dbinfo.php'; #path to the file
     if($newMemberID<150){
         $sql = "INSERT INTO member VALUES ('$newMemberID', null, null, '$email', null)";
         $connect->query($sql);
-        header("Refresh: 0, url=index.php");
+        header("Refresh: 0, url=https://gym174.herokuapp.com/");
     }
     else{
         echo "The gym is full. Check back later!";
