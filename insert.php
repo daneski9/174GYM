@@ -1,4 +1,4 @@
-<!-- CODE FOR INSERTING A NEW MEMBER INTO THE DATABASE -->
+<!-- Code for inserting new members into the member table -->
 <?php
 include_once 'includes/dbinfo.php'; #path to the file 
 ?>
@@ -12,7 +12,7 @@ include_once 'includes/dbinfo.php'; #path to the file
     <title>GYM MANAGEMENT DATABASE</title>
 </head>
 <body>
-    <h1 class = 'sign-up'>174 GYM MEMBER SIGN UP</h1>
+    <h1 class = 'sign-up'>174 GYM MEMBER ACCOUNT</h1>
     <br>
     <?php
     $connect;
@@ -20,23 +20,25 @@ include_once 'includes/dbinfo.php'; #path to the file
     echo "Failed to connect!";
     exit();
     }
-    //Retreiving the email from the form:
+    //Retreiving email from the form submission:
     $email = $_REQUEST['email'];
     //Retreiving max ID and incrementing by 1 for new members:
     $maxID = "SELECT MAX(memberID) as 'maxID' FROM member";
     $maxIDresult = $connect->query($maxID);
-    while($row = $maxIDresult->fetch_assoc()) {
+    while($row = $maxIDresult->fetch_assoc()){
         $newMemberID =  $row['maxID']+1;
-        }
-    //Inserting new member information:
-    $sql = "INSERT INTO member VALUES ('$newMemberID', null, null, '$email', null)";
-    $connect->query($sql);
-    //Redirect to index.php:
-    header("Refresh: 0, url=index.php");
-    
-
+    }
+    //Inserting new member information into database (150 maximum members):
+    if($newMemberID<150){
+        $sql = "INSERT INTO member VALUES ('$newMemberID', null, null, '$email', null)";
+        $connect->query($sql);
+        header("Refresh: 0, url=index.php");
+    }
+    else{
+        echo "The gym is full. Check back later!";
+    }
+   
    $connect->close(); ?>
     
-
 </body>
 </html>
