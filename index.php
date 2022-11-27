@@ -1,7 +1,3 @@
-
-<?php
-include_once 'includes/dbinfo.php'; #path to the file 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,28 +8,15 @@ include_once 'includes/dbinfo.php'; #path to the file
     <title>GYM MANAGEMENT DATABASE</title>
 </head>
 <body>
-    <h1>Dane! - Testing my Database connection: Using herokus database server with mysql:</h1>
-    <br>
-    <?php
-    $connect;
-    if(mysqli_connect_errno()){
-    echo "Failed to connect!";
-    exit();
-    }
-
-    $sql = "SELECT gymID FROM 174gym";
-    $result = $connect->query($sql);
-
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-        echo "gymID: " . $row["gymID"]. "<br>";
-        }
-    } else {
-        echo "0 results";
-    }
-   $connect->close();
-   ?>
-
+    <h1 class = 'sign-up'>174 GYM MEMBER SIGN UP</h1>
+    
+    <div class="form-">
+    Hello new gym member!
+    <form action="insert.php" method="post" >
+    Enter your email: <input type="text" name="email" placeholder='Email'>
+    <input type="submit">
+    </form>
+    </div>
+  
 </body>
 </html>
