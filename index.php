@@ -26,7 +26,7 @@ include_once 'includes/dbinfo.php'; #path to the file
     $sql = "SELECT * FROM member";
     $result = $connect->query($sql);
  
-    echo "<table border ='1'>
+    echo "<table class = 'memberTable' border = '1'>
     <tr>
     <th>Member ID</th>
     <th>First name</th>

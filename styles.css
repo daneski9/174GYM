@@ -1,3 +1,4 @@
+/* STYLING - for fun */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
 body{
     background-color: rgb(250, 241, 232);
@@ -30,3 +31,10 @@ input[type=text]
     border:0 none; 
     border-radius: 5px; 
     }
+
+.memberTable{
+    margin-left:5%;
+    margin-top: 2%;
+    width:35%;
+    background-color: rgb(237, 255, 233);
+}
