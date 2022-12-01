@@ -20,19 +20,20 @@ include_once 'includes/dbinfo.php'; #path to the file
     echo "Failed to connect!";
     exit();
     }
-    //Retreiving email from the form submission:
-    $email = $_REQUEST['email'];
+    //Retreiving email from the form submission: (convert to string for bind_param)
+    $emailinfo = strval($_REQUEST['email']);
     //Retreiving max ID and incrementing by 1 for new members:
     $maxID = "SELECT MAX(memberID) as 'maxID' FROM member";
     $maxIDresult = $connect->query($maxID);
     while($row = $maxIDresult->fetch_assoc()){
         $newMemberID =  $row['maxID']+1;
     }
-    //Inserting new member information into database (150 maximum members):
+    //Inserting new member information into database using a prepared statement(150 maximum members):
     if($newMemberID<150){
-        $sql = "INSERT INTO member VALUES ('$newMemberID', null, null, '$email', null)";
-        $connect->query($sql);
-        header("Refresh: 0, url=https://gym174.herokuapp.com/");
+        $sqlstatement = $connect->prepare("INSERT INTO member (memberID, email) VALUES (?,?)");
+        $sqlstatement->bind_param("is", $newMemberID, $emailinfo); //integer, string
+        $sqlstatement->execute();
+        header("Refresh: 0, url=index.php");
     }
     else{
         echo "The gym is full. Check back later!";
