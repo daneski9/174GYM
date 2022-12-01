@@ -33,7 +33,7 @@ include_once 'includes/dbinfo.php'; #path to the file
         $sqlstatement = $connect->prepare("INSERT INTO member (memberID, email) VALUES (?,?)");
         $sqlstatement->bind_param("is", $newMemberID, $emailinfo); //integer, string
         $sqlstatement->execute();
-        header("Refresh: 0, url=index.php");
+        header("Refresh: 0, url=https://gym174.herokuapp.com/");
     }
     else{
         echo "The gym is full. Check back later!";
